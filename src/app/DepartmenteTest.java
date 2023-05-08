@@ -22,6 +22,9 @@ public class DepartmenteTest {
         departmentDao.update(dep);
         System.out.println("Updated Department: " + departmentDao.findById(4));
         System.out.println();
-        
+
+        System.out.println("#### TEST 4 department delete #####");
+        departmentDao.deleteById(8);
+
     }
 }
