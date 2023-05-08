@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import db.DB;
@@ -93,6 +94,41 @@ public class SellerDaoJDBC implements SellerDao{
     public List<Seller> findall() {
         // TODO Auto-generated method stub
         return null;
+    }
+
+    @Override
+    public List<Seller> findByDepartment(Department department) {
+        List<Seller> sellersList = new ArrayList<>();
+        PreparedStatement st = null;
+        ResultSet rs = null;
+
+        try {
+
+            st = conn.prepareStatement(
+                "SELECT * "
+                + "FROM seller "
+                + "WHERE DepartmentId = ? "
+                + "ORDER BY Name"
+            );
+
+            st.setInt(1, department.getId());
+
+            rs = st.executeQuery();
+            
+            while(rs.next()){
+                Seller seller = instantiateSeller(rs, department);
+                sellersList.add(seller);
+            }
+            return sellersList;
+            
+
+        } catch (SQLException e) {
+            throw new DbException(e.getMessage());
+        }finally{
+            DB.closeStatement(st);
+            DB.closeResultSet(rs);
+        }
+
     }
     
 }
