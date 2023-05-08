@@ -24,5 +24,10 @@ public class Main {
         System.out.println("##### TEST 3: seller findByDepartment");
         List<Seller> sellers = sellerDao.findByDepartment(new Department(2, "Electronics"));
         sellers.forEach(System.out::println);
+        System.out.println();
+
+        System.out.println("##### TEST 4: seller findAll");
+        List<Seller> allSellers = sellerDao.findall();
+        allSellers.forEach(System.out::println);
     }
 }
