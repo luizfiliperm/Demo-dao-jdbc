@@ -89,7 +89,7 @@ public class SellerDaoJDBC implements SellerDao{
 
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new DbException(e.getMessage());
         }finally{
             DB.closeStatement(st);
         }
@@ -114,7 +114,7 @@ public class SellerDaoJDBC implements SellerDao{
             if(rowsAffected == 0){
                 throw new DbException("inexistent ID!");
             }
-            
+
             System.out.println("Done! Rows Affected: " + rowsAffected);
         } catch (SQLException e) {
             throw new DbException(e.getMessage());
