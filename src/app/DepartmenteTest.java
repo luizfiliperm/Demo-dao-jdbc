@@ -1,5 +1,7 @@
 package app;
 
+import java.util.List;
+
 import model.dao.DaoFactory;
 import model.dao.DepartmentDao;
 import model.entities.Department;
@@ -24,7 +26,11 @@ public class DepartmenteTest {
         System.out.println();
 
         System.out.println("#### TEST 4 department delete #####");
-        departmentDao.deleteById(8);
+        // departmentDao.deleteById(8);
+        System.out.println();
 
+        System.out.println("##### TEST 5 department findAll");
+        List<Department> departments = departmentDao.findall();
+        departments.forEach(System.out::println);
     }
 }
