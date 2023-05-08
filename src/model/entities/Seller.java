@@ -2,10 +2,12 @@ package model.entities;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Seller implements Serializable{
     
     private static final long serialVersionUID = 1L;
+    public static final DateTimeFormatter fmtBirthDaye = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     private Integer id;
     private String name;
