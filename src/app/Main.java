@@ -41,5 +41,9 @@ public class Main {
         // seller.setEmail("jpsoares@gmail.com");
         // seller.setBirthDate(LocalDate.parse("02/02/2002", Seller.fmtBirthDaye));
         // sellerDao.update(seller);
+        System.out.println();
+
+        System.out.println("##### TEST 7: Seller Delete #####");
+        // sellerDao.deleteById(9);
     }
 }
